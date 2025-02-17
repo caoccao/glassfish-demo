@@ -6,7 +6,7 @@
  */
 
 plugins {
-    id("java")
+    application
 }
 
 repositories {
@@ -19,6 +19,14 @@ dependencies {
     implementation("org.glassfish.jaxb:jaxb-runtime:2.3.6")
     implementation("org.glassfish.jaxb:txw2:2.3.6")
     implementation("com.sun.activation:jakarta.activation:1.2.2")
+}
+
+tasks.jar {
+    manifest {
+        attributes(
+            "Main-Class" to "com.caoccao.glassfish.demo.Demo"
+        )
+    }
 }
 
 tasks.withType<JavaCompile> {
