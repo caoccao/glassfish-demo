@@ -9,6 +9,7 @@ import javax.ws.rs.core.UriBuilder;
 import java.io.FileInputStream;
 import java.net.URI;
 import java.security.KeyStore;
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -21,6 +22,13 @@ public class Demo {
         keyManagerFactory.init(keyStore, "gfdemo".toCharArray());
         SSLContext sslContext = SSLContext.getInstance("TLS");
         sslContext.init(keyManagerFactory.getKeyManagers(), null, null);
+        System.out.println("SSLContext Properties:");
+        System.out.println("------------------------");
+        System.out.println("Protocol: " + sslContext.getProtocol());
+        System.out.println("Provider: " + sslContext.getProvider());
+        System.out.println("Supported Protocols: " + Arrays.toString(sslContext.getSupportedSSLParameters().getProtocols()));
+        System.out.println("Supported Suites: " + Arrays.toString(sslContext.getSupportedSSLParameters().getCipherSuites()));
+        System.out.println("Default Suite: " + Arrays.toString(sslContext.getDefaultSSLParameters().getCipherSuites()));
         return sslContext;
     }
 

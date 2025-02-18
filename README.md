@@ -1,8 +1,12 @@
 # GlassFish Demo
 
+This is a simple GlassFish demo with HTTPS enabled.
+
+## How to Run the Demo?
+
 Run the demo in IDEA and visit https://localhost:8001/hello in a web browser. You should see "Hello World!" and timestamp.
 
-## Enable HTTPS
+## How to Manually Enable HTTPS?
 
 ### Create a Self-Signed Certificate
 
